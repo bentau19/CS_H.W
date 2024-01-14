@@ -1,9 +1,7 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <math.h>
 int main()
 {
-
     //ex1
     printf("Exercise 1:\n");
     printf("Please enter 2 binary strings with 4 digits:\n");
@@ -63,16 +61,16 @@ int main()
     printf("The decimal value of %d%d%d%d%d in base %d is %d",num31,num32,num33,num34,num35,base3,res3);
     printf("\n\n");
 
-
     //ex4
     printf("Exercise 4:\n");
     printf("Enter a number: ");
     int num41;
-    scanf(" %d",&num41);
+    scanf(" %d", &num41);
     printf("I want to know the value of bit number: ");
-    int bitVal;
-    scanf(" %d",&bitVal);
-    printf("\nThe value of the %d bit in %d is %d\n",bitVal,num41,((num41/((int)pow(2,bitVal-1)))%2));
+    int bitIdx;
+    scanf(" %d", &bitIdx);
+    int bitVal = (num41 & (1 << (bitIdx - 1))) != 0;
+    printf("\nThe value of the %d bit in %d is %d\n", bitIdx, num41, bitVal);
     printf("Congrats! You've found the philosopher's stone!");
 
     return 0;
