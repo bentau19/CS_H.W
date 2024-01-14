@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1705228769 source:c:\users\user\desktop\cs ba\first year\semester a\cs introduction\projects\homework 1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+
