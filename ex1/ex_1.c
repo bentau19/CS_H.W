@@ -17,10 +17,11 @@ int main()
     printf("^\n");
     printf("%c%c%c%c\n", bin21, bin22, bin23, bin24);
     printf("--------\n");
-    bin11 = ((bin11 - '0') ^ (bin21 - '0')) + '0';
-    bin12 = ((bin12 - '0') ^ (bin22 - '0')) + '0';
-    bin13 = ((bin13 - '0') ^ (bin23 - '0')) + '0';
-    bin14 = ((bin14 - '0') ^ (bin24 - '0')) + '0';
+    char asciiZeroIdx = '0';
+    bin11 = ((bin11 - asciiZeroIdx) ^ (bin21 - asciiZeroIdx)) + asciiZeroIdx;
+    bin12 = ((bin12 - asciiZeroIdx) ^ (bin22 - asciiZeroIdx)) + asciiZeroIdx;
+    bin13 = ((bin13 - asciiZeroIdx) ^ (bin23 - asciiZeroIdx)) + asciiZeroIdx;
+    bin14 = ((bin14 - asciiZeroIdx) ^ (bin24 - asciiZeroIdx)) + asciiZeroIdx;
     printf("%c%c%c%c\n", bin11, bin12, bin13, bin14);
     printf("\n");
 
