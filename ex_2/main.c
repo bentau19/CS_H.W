@@ -1,21 +1,36 @@
 /**
 CREATED BY BEN TAU!
 **/
-
 #include <stdio.h>
 #include <stdlib.h>
-
 #define NO_REMINDER 0
 #define START_AT_NATURAL 0
-#define BEGIN_AT_SECOND 0
-
+#define BEGIN_AT_SECOND 2
 /**
 This mission takes an number and returns the fizz buzz game till this number.
 **/
-void mission1(){
+
+int getNum(int mission){
     printf("Enter a number: ");
-    int num;
-    scanf("%d",&num);
+    double num;
+    scanf("%lf",&num);
+    if(num-(int)num==NO_REMINDER){
+        if(num>START_AT_NATURAL){return ((int) num);}
+        else {
+            if(mission==0)
+            printf("Foolish mortal! You cannot solve Thanos's quest with an input that isn't a number bigger than 0\n");
+            else
+            printf("Foolish mortal! You cannot solve Thanos's quest with an input that isn't a number bigger than 1\n");
+            return (-9);
+        }
+    }else{
+        printf("Foolish mortal! You cannot solve Thanos's quest with an input that isn't a number that not integer!\n");
+        return (-9);
+    }
+}
+
+void mission1(){
+    int num = getNum(1);
     if(num>START_AT_NATURAL){
         for(int i=1;i<=num;i++){
             if(i%3==NO_REMINDER)printf("Fizz");
@@ -23,7 +38,7 @@ void mission1(){
             else if(i%3!=NO_REMINDER)printf("%d",i);
             printf("\n");
         }
-    }else printf("Foolish mortal! You cannot solve Thanos's quest with an input that isn't a number bigger than 1\n");
+    }
     printf("\n");
 }
 
@@ -31,9 +46,7 @@ void mission1(){
 This mission takes an number and returns the first Fibonacci sequence numbers according to the selected number.
 **/
 void mission2(){
-    printf("Enter a number: ");
-    int num;
-    scanf("%d",&num);
+    int num = getNum(0);
     if(num>START_AT_NATURAL){
         int firstNum = 0;
         int secondNum = 1;
@@ -44,17 +57,14 @@ void mission2(){
             firstNum=secondNum-firstNum;
         }
     printf("\n");
-    }else printf("Foolish mortal! You cannot solve Thanos's quest with an input that isn't a number bigger than 0\n");
-    printf("\n");
+    }printf("\n");
 }
 
 /**
 This mission takes an number and returns the sum of all the prime numbers till the selected number.
 **/
 void mission3(){
-    printf("Enter a number: ");
-    int num;
-    scanf("%d",&num);
+    int num = getNum(1);
     if(num>START_AT_NATURAL){
         int sum = 0;
         for(int i=BEGIN_AT_SECOND;i<=num;i++){
@@ -67,17 +77,14 @@ void mission3(){
             }
         }
         printf("%d\n",sum);
-    }else printf("Foolish mortal! You cannot solve Thanos's quest with an input that isn't a number bigger than 1\n");
-    printf("\n");
+    }printf("\n");
 }
 
 /**
 This mission takes an number and returns if the number is perfect or not.
 **/
 void mission4(){
-    printf("Enter a number: ");
-    int num;
-    scanf("%d",&num);
+    int num = getNum(0);
     if(num>START_AT_NATURAL){
         int sum = 1;
         for(int i=BEGIN_AT_SECOND;i<num;i++){
@@ -85,8 +92,7 @@ void mission4(){
         }
         if(num==sum)printf("Perfect!\n");
         else printf("Not Perfect!\n");
-    }else printf("Foolish mortal! You cannot solve Thanos's quest with an input that isn't a number bigger than 0\n");
-    printf("\n");
+    }printf("\n");
 }
 
 /**
@@ -103,10 +109,11 @@ int main()
     printf("3. Thanos' Maze System\n");
     printf("4. The Sorcery of Thanos\n");
     printf("5. Quit the quest\n");
-    int chose;
-    scanf("%d",&chose);
+    double chose;
+    scanf(" %lf",&chose);
     printf("\n");
-    switch (chose) {
+    if(chose-(int)chose==0)
+    switch ((int)chose) {
       case 1:
           mission1();
         break;
@@ -126,7 +133,7 @@ int main()
       default:
           printf("Thanos is mad! You are playing his game and this is not an option. Choose again, wisely.\n\n");
           break;
-    }
+    }else printf("Thanos is mad! You are playing his game and this is not an option. Choose again, wisely.\n\n");
     }
     return 0;
 }
