@@ -1,26 +1,28 @@
-/**
-CREATED BY BEN TAU!
-**/
+/***********
+*Name: Ben Tau
+*Id: 325394997
+*Assignment: ex_2
+***********/
 #include <stdio.h>
-#define NO_REMINDER 0
-#define START_AT_NATURAL 0
-#define BEGIN_AT_SECOND 2
-#define FIZZ_IDX 3
-#define BUZZ_IDX 5
-#define MISSION_FROM_ONE 1
-#define MISSION_FROM_ZERO 0
-#define ERROR_SIGN -9
+
+const int NO_REMINDER = 0;
+const int START_AT_NATURAL = 0;
+const int BEGIN_AT_SECOND = 2;
+const int MISSION_FROM_ONE = 1;
+const int MISSION_FROM_ZERO = 0;
+const int ERROR_SIGN = -9;
+
 /**
 this function take an number from the client and make sure it is an intager bigger than one or zero (depend on the input mission)
 and if it is the func will return the number to the func that called it or if it not it will return -9
 **/
-int getNum(int mission){
+long long getNum(int mission){
     printf("Enter a number: ");
     double num;
     scanf("%lf",&num);
-    if(num-(int)num==NO_REMINDER) {
+    if(num-(long long)num==NO_REMINDER) {
         if(num>mission){
-            return ((int) num);
+            return ((long long) num);
         }else{
             if(mission==MISSION_FROM_ONE)printf("Foolish mortal! You cannot solve Thanos's quest with an input that isn't a number bigger than 1\n");
             else printf("Foolish mortal! You cannot solve Thanos's quest with an input that isn't a number bigger than 0\n");
@@ -35,12 +37,14 @@ int getNum(int mission){
 This mission takes an number and returns the fizz buzz game till this number.
 **/
 void mission1(){
-    int num = getNum(MISSION_FROM_ONE);
+    const int FIZZ_IDX = 3;
+    const int BUZZ_IDX = 5;
+    long long num = getNum(MISSION_FROM_ONE);
     if(num>START_AT_NATURAL){
-        for(int i=1;i<=num;i++){
+        for(long long i=1;i<=num;i++){
             if(i%FIZZ_IDX==NO_REMINDER)printf("Fizz");
             if(i%BUZZ_IDX==NO_REMINDER)printf("Buzz");
-            else if(i%FIZZ_IDX!=NO_REMINDER)printf("%d",i);
+            else if(i%FIZZ_IDX!=NO_REMINDER)printf("%llu",i);
             printf("\n");
         }
     }
@@ -70,19 +74,19 @@ void mission2(){
 This mission takes an number and returns the sum of all the prime numbers till the selected number.
 **/
 void mission3(){
-    int num = getNum(MISSION_FROM_ONE);
+    long long num = getNum(MISSION_FROM_ONE);
     if(num>START_AT_NATURAL){
-        int sum = 0;
-        for(int i=BEGIN_AT_SECOND;i<=num;i++){
+        unsigned long long sum = 0;
+        for(long long i=BEGIN_AT_SECOND;i<=num;i++){
                 sum+=i;
-            for(int j=BEGIN_AT_SECOND;j<=i/2;j++){
+            for(long long j=BEGIN_AT_SECOND;j<=i/2;j++){
                 if(i%j==NO_REMINDER){
                     sum-=i;
                     j=i;
                 }
             }
         }
-        printf("%d\n",sum);
+        printf("%llu\n",sum);
     }
     printf("\n");
 }
@@ -91,10 +95,10 @@ void mission3(){
 This mission takes an number and returns if the number is perfect or not.
 **/
 void mission4(){
-    int num = getNum(MISSION_FROM_ZERO);
+    long long num = getNum(MISSION_FROM_ZERO);
     if(num>START_AT_NATURAL){
-        int sum = 1;
-        for(int i=BEGIN_AT_SECOND;i<num;i++){
+        long long sum = 1;
+        for(long long i=BEGIN_AT_SECOND;i<num;i++){
             if(num%i==NO_REMINDER)sum+=i;
         }
         if(num==sum)printf("Perfect!\n");
